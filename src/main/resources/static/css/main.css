@@ -1,0 +1,28 @@
+.container .logoPaginaInicial {
+    width: 100px;
+    height: auto;
+}
+
+.container .logoCadastrar  {
+    width: 150px;
+    margin: 22px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container .logoLogin {
+    width: 155px;
+    margin: 22px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container .logofooter {
+    width: 100px;
+    margin: 10px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
