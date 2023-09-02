@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org" th:replace="fragments/layout :: layout(~{::title}, ~{::#content}, ~{::#conteudo})">
+<head>
+    <title>GoService | Perguntas Frequentes</title>
+</head>
+<body>
+
+<main id="content">
+    <div th:replace="fragments/header :: header"></div>
+    <h1 id="faq-title">FAQ - Perguntas Frequentes</h1>
+    <div class="container-faq">
+        <div>
+            <img th:src="@{/assets/img/logos/2.png}">
+        </div>
+        <div id="faq">
+            <div class="perguntas">
+                <p class="d-inline-flex gap-1">
+                    <button class="faq-btn btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#pergunta-1" aria-expanded="false" aria-controls="collapseExample">
+                        O que é a GoService?
+                    </button>
+                </p>
+                <div class="collapse" id="pergunta-1">
+                    <div class="card card-body">
+                        A GoService é uma plataforma online cuidadosamente projetada com o princípio fundamental de facilitar a conexão direta e eficaz entre profissionais autônomos altamente qualificados e clientes que estão em busca de serviços especializados e personalizados.
+                    </div>
+                </div>
+            </div>
+            <div class="perguntas">
+                <p class="d-inline-flex gap-1">
+                    <button class="faq-btn btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#pergunta-2" aria-expanded="false" aria-controls="collapseExample">
+                        Quais tipos de serviços autônomos estão disponíveis no site?
+                    </button>
+                </p>
+                <div class="collapse" id="pergunta-2">
+                    <div class="card card-body">
+                        Em nosso site, você pode encontrar uma ampla gama de serviços autônomos, incluindo serviços de reparo, limpeza, design e muito mais. Basta navegar pelas categorias para encontrar o que você precisa.
+                    </div>
+                </div>
+            </div>
+            <div class="perguntas">
+                <p class="d-inline-flex gap-1">
+                    <button class="faq-btn btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#pergunta-3" aria-expanded="false" aria-controls="collapseExample">
+                        Quais são as qualificações e experiências dos autônomos cadastrados no site?
+                    </button>
+                </p>
+                <div class="collapse" id="pergunta-3">
+                    <div class="card card-body">
+                        Todos os autônomos cadastrados no nosso site são incentivados a fornecer informações detalhadas sobre suas qualificações e experiências profissionais em seus perfis. Você pode verificar essas informações antes de tomar uma decisão.
+                    </div>
+                </div>
+            </div>
+            <div class="perguntas">
+                <p class="d-inline-flex gap-1">
+                    <button class="faq-btn btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#pergunta-4" aria-expanded="false" aria-controls="collapseExample">
+                        Quanto custam os serviços dos autônomos e como os pagamentos são processados?
+                    </button>
+                </p>
+                <div class="collapse" id="pergunta-4">
+                    <div class="card card-body">
+                        Os preços dos serviços variam de acordo com o profissional e o tipo de trabalho. Você encontrará informações sobre os preços nos perfis dos autônomos. Os pagamentos podem ser processados de forma segura diretamente pelo nosso site.
+                    </div>
+                </div>
+            </div>
+            <div class="perguntas">
+                <p class="d-inline-flex gap-1">
+                    <button class="faq-btn btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#pergunta-5" aria-expanded="false" aria-controls="collapseExample">
+                        Existem garantias ou políticas de reembolso se não ficar satisfeito com o serviço?
+                    </button>
+                </p>
+                <div class="collapse" id="pergunta-5">
+                    <div class="card card-body">
+                        Nós incentivamos os autônomos a oferecer garantias de satisfação em seus serviços. Caso não fique satisfeito com o trabalho realizado, entre em contato conosco e investigaremos a situação. Temos políticas de reembolso em vigor para garantir a sua satisfação.
+                    </div>
+                </div>
+            </div>
+            <div class="perguntas">
+                <p class="d-inline-flex gap-1">
+                    <button class="faq-btn btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#pergunta-6" aria-expanded="false" aria-controls="collapseExample">
+                        Quanto tempo levará para um autônomo concluir meu projeto?
+                    </button>
+                </p>
+                <div class="collapse" id="pergunta-6">
+                    <div class="card card-body">
+                        O tempo de conclusão do projeto pode variar dependendo da complexidade e da disponibilidade do autônomo. Você pode discutir prazos específicos com o profissional antes de iniciar o projeto.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<footer id="conteudo">
+    <div th:replace="fragments/footer :: footer"></div>
+</footer>
+
+</body>
+</html>
