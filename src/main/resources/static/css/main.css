@@ -26,3 +26,57 @@
     justify-content: center;
     align-items: center;
 }
+
+/* Perguntas Frequentes */
+
+#faq-title {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 10%;
+    font-family: georgia;
+    font-size: 3rem;
+    background-color: #12344D;
+    color: white;
+}
+
+.container-faq {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    width:100%;
+    padding: 3% 0;
+}
+
+#faq {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 50%;
+}
+
+.perguntas {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0;
+}
+
+.gap-1 {
+    gap: 10px;
+}
+
+.faq-btn {
+    width: 694px;
+    padding: 20px;
+}
+
+.btn-primary {
+    background-color: #12344D;
+    border-color: #12344D;
+}
+
