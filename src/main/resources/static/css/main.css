@@ -80,3 +80,36 @@
     border-color: #12344D;
 }
 
+/* Termos e condições*/
+
+.container-tercond {
+    margin: 50px 250px 50px 250px;
+}
+
+#termos-title {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 10%;
+    font-family: georgia;
+    font-size: 3rem;
+    background-color: #12344D;
+    color: white;
+}
+
+/* Política de privacidade */
+
+.container-politica {
+    margin: 50px 250px 50px 250px;
+}
+
+#politica-title {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 10%;
+    font-family: georgia;
+    font-size: 3rem;
+    background-color: #12344D;
+    color: white;
+}
