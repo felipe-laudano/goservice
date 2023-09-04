@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @Controller
@@ -110,7 +111,31 @@ public class PrestadorController {
         return mv;
     }
 
-    @PostMapping(value = "/agenda/cancelar")
+    @PostMapping(value = "/agenda/busca")
+    public String findByAgendamentoData(
+            @RequestParam (required = false) LocalDate dataInicial,
+            @RequestParam (required = false) LocalDate dataFinal,
+            Authentication authentication,
+            RedirectAttributes attributes){
+            try {
+                List<Agendamento> agendamentos = agendamentoService.findByAgendamentoData(dataInicial, dataFinal, authentication);
+                System.out.println(dataInicial);
+                System.out.println(dataFinal);
+                attributes.addFlashAttribute("agendamentosData", agendamentos);
+            }
+            catch (UsuarioNaoAutenticadoException | UsuarioNaoEncontradoException e) {
+                attributes.addFlashAttribute("errorMessage", e.getMessage());
+            }
+            catch (RuntimeException e) {
+                attributes.addFlashAttribute("errorMessage", "Insira uma data válida");
+            }
+            catch (Exception e) {
+                attributes.addFlashAttribute("errorMessage", "Erro ao exibir dados");
+            }
+            return "redirect:/prestador/agenda";
+    }
+
+            @PostMapping(value = "/agenda/cancelar")
     public String cancelarAgendamento(
             @RequestParam(name = "agendamentoId") Long agendamentoId,
             Authentication authentication,
