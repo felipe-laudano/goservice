@@ -28,4 +28,10 @@ public interface UsuarioRepository extends JpaRepository<Usuario, Long> {
             "FROM usuarios" +
             "GROUP BY perfil", nativeQuery = true)
     List<Usuario> usersByProfile(Perfil perfil);
+
+    @Query(value =
+            "SELECT * " +
+            " FROM usuarios" +
+            " WHERE nome LIKE ?%", nativeQuery = true)
+    List<Usuario> findUserByName(String nome);
 }
