@@ -1,8 +1,7 @@
 package com.soulcode.goserviceapp.domain;
 
 import com.soulcode.goserviceapp.domain.enums.Perfil;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
+import jakarta.persistence.*;
 
 import java.time.LocalDate;
 import java.util.Objects;
@@ -12,6 +11,8 @@ public class Cliente extends Usuario{
     private String telefone;
     @Column(length = 14)
     private String cpf;
+
+
 
     private LocalDate dataNascimento;
 
@@ -66,5 +67,26 @@ public class Cliente extends Usuario{
     @Override
     public int hashCode() {
         return Objects.hash(telefone, cpf, dataNascimento);
+    }
+
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "endereco_id")
+    private Endereco endereco;
+    public Cliente(Endereco endereco) {
+        this.endereco = endereco;
+    }
+
+    public Cliente(Long id, String nome, String email, String senha, Perfil perfil, Boolean habilitado, Endereco endereco) {
+        super(id, nome, email, senha, perfil, habilitado);
+        this.endereco = endereco;
+    }
+
+    public Endereco getEndereco() {
+        return endereco;
+    }
+
+    public void setEndereco(Endereco endereco) {
+        this.endereco = endereco;
     }
 }
