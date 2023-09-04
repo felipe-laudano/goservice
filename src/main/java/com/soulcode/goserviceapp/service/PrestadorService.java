@@ -48,6 +48,7 @@ public class PrestadorService {
         updatedPrestador.setEmail(prestador.getEmail());
         updatedPrestador.setDescricao(prestador.getDescricao());
         updatedPrestador.setTaxaPorHora(prestador.getTaxaPorHora());
+        updatedPrestador.setEndereco(prestador.getEndereco());
         return prestadorRepository.save(updatedPrestador);
     }
 
