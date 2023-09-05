@@ -1,9 +1,6 @@
 package com.soulcode.goserviceapp.domain;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 @Entity
 public class Endereco {
@@ -11,11 +8,15 @@ public class Endereco {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
+    @Column(name = "logradouro")
     private String logradouro;
     private String numero;
     private String cidade;
     private String uf;
+
+    @ManyToOne
+    @JoinColumn(name = "usuario_id")
+    private Usuario usuario;
 
     public Endereco() {
     }
@@ -67,4 +68,11 @@ public class Endereco {
     public void setUf(String uf) {
         this.uf = uf;
     }
+
+    public Endereco getUsuario() {
+        return null;
+    }
 }
+
+
+
