@@ -18,42 +18,71 @@
                 <div th:if="${successMessage != null}" th:text="${successMessage}" class="alert alert-success" role="alert"></div>
                 <div th:if="${errorMessage != null}" th:text="${errorMessage}" class="alert alert-danger" role="alert"></div>
 
-                <form method="post" th:action="@{/cliente/dados}">
-                    <input type="hidden" name="id" th:field="*{cliente.id}">
-                    <div class="mb-3">
-                        <label for="nome" class="form-label">Nome<span class="text-danger">*</span></label>
-                        <input type="text" class="form-control" id="nome" name="nome" th:field="*{cliente.nome}" required>
-                        <div class="form-text"></div>
-                    </div>
-                    <div class="mb-3">
-                        <label for="email" class="form-label">E-mail<span class="text-danger">*</span></label>
-                        <input type="email" class="form-control" id="email" name="email" th:field="*{cliente.email}" required>
-                        <div class="form-text"></div>
-                    </div>
-                    <div class="mb-3">
-                        <label for="cpf" class="form-label">Telefone</label>
-                        <input type="tel" class="form-control" id="telefone" name="telefone" th:field="*{cliente.telefone}">
-                        <div class="form-text"></div>
-                    </div>
-                    <div class="mb-3">
-                        <label for="cpf" class="form-label">CPF</label>
-                        <input type="text" class="form-control" id="cpf" name="cpf" th:field="*{cliente.cpf}">
-                        <div class="form-text"></div>
-                    </div>
-                    <div class="mb-3">
-                        <label for="dataNascimento" class="form-label">Data de Nascimento</label>
-                        <input type="date" class="form-control" id="dataNascimento" name="dataNascimento" th:value="${cliente.dataNascimento}">
-                        <div class="form-text"></div>
+                <div class="row">
+                    <div class="col-md-8">
+                        <form method="post" th:action="@{/cliente/dados}">
+                            <input type="hidden" name="id" th:field="*{cliente.id}">
+
+                            <div class="mb-3">
+                                <label for="nome" class="form-label">Nome<span class="text-danger">*</span></label>
+                                <input type="text" class="form-control" id="nome" name="nome" th:field="*{cliente.nome}" required>
+                                <div class="form-text"></div>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="email" class="form-label">E-mail<span class="text-danger">*</span></label>
+                                <input type="email" class="form-control" id="email" name="email" th:field="*{cliente.email}" required>
+                                <div class="form-text"></div>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="cpf" class="form-label">Telefone</label>
+                                <input type="tel" class="form-control" id="telefone" name="telefone" th:field="*{cliente.telefone}">
+                                <div class="form-text"></div>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="cpf" class="form-label">CPF</label>
+                                <input type="text" class="form-control" id="cpf" name="cpf" th:field="*{cliente.cpf}">
+                                <div class="form-text"></div>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="dataNascimento" class="form-label">Data de Nascimento</label>
+                                <input type="date" class="form-control" id="dataNascimento" name="dataNascimento" th:value="${cliente.dataNascimento}">
+                                <div class="form-text"></div>
+                            </div>
+
+                            <button type="submit" id="btnSalvar" class="btn btn-primary">Salvar <i class="bi bi-save2 ms-2"></i></button>
+                            <input type="hidden" id="urlFoto" name="urlFoto">
+                        </form>
                     </div>
 
-                    <button type="submit" class="btn btn-primary">Salvar <i class="bi bi-save2 ms-2"></i></button>
-                </form>
+                    <div class="col-md-4 text-center">
+                        <div class="mb-3">
+                            <img id="imagePreview" th:src="${cliente.urlFoto != null ? cliente.urlFoto : defaultImageUrl}" class="rounded-circle" alt="Foto de Perfil" width="150" height="150">
+                        </div>
+
+                         <div class="mb-3">
+                             <label for="profilePic" class="form-label">Foto de Perfil</label>
+                             <input type="file" class="form-control" id="profilePic" name="profilePic">
+                         </div>
+
+                        <div class="mb-3">
+                            <progress id="uploadProgressBar" value="0" max="100" style="width:100%;"></progress>
+                        </div>
+
+                        <button class="btn btn-primary" id="updateButton">Upload <i class="bi bi-upload ms-2"></i></button>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 </div>
+
 <footer id="conteudo">
     <div th:replace="fragments/footer :: footer"></div>
 </footer>
+
 </body>
 </html>
