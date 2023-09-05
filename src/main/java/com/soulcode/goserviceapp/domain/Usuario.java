@@ -35,6 +35,9 @@ public class Usuario implements UserDetails {
     @Column(nullable = false)
     private Perfil perfil;
 
+    @OneToMany(mappedBy = "usuario")
+    private List<Endereco> enderecos;
+
     public Usuario(){
         this.habilitado =true;
     }
