@@ -30,11 +30,17 @@ public class AdministradorController {
     private UsuarioLogService usuarioLogService;
 
     @GetMapping(value = "/servicos")
-    public ModelAndView servicos() {
+    public ModelAndView servicos(@RequestParam(required = false) String servicoFiltro) {
         ModelAndView mv = new ModelAndView("servicosAdmin");
         try {
-            List<Servico> servicos = servicoService.findAll();
-            mv.addObject("servicos", servicos);
+            if (servicoFiltro == null){
+                List<Servico> servicos = servicoService.findAll();
+                mv.addObject("servicos", servicos);
+            }
+            else {
+                List<Servico> servicosPorNome = servicoService.findServicoByName(servicoFiltro);
+                mv.addObject("servicos", servicosPorNome);
+            }
         } catch (Exception ex) {
             mv.addObject("errorMessage", "Erro ao buscar dados de serviços.");
         }
