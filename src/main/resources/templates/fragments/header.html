@@ -51,7 +51,13 @@
 
             <div class="dropdown text-end" th:if="${#authorization.expression('isAuthenticated()')}">
                 <a href="#" class="d-block link-body-emphasis text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                    <img src="https://github.com/mdo.png" alt="mdo" width="32" height="32" class="rounded-circle">
+                    <div th:if="${#authorization.expression('hasRole(''ROLE_CLIENTE'')')}">
+                        <img th:src="${cliente.urlFoto != null ? cliente.urlFoto : defaultImageUrl}" alt="mdo" width="50" height="50" class="rounded-circle">
+                    </div>
+
+                    <div th:if="${#authorization.expression('hasRole(''ROLE_PRESTADOR'')')}">
+                        <img th:src="${prestador.urlFoto != null ? prestador.urlFoto : defaultImageUrl}" alt="mdo" width="50" height="50" class="rounded-circle">
+                    </div>
                 </a>
                 <ul class="dropdown-menu text-small">
                     <li><a class="dropdown-item" href="/auth/password/new">Editar Senha</a></li>
