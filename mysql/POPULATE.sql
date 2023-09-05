@@ -162,8 +162,7 @@ value ("Cliente","Gabriela","gabriela@cliente.com","CLIENTE","$2a$10$r3r9V682sIh
     
 -- INSERT SERVIÇOS
 INSERT INTO servicos (categoria, descricao, nome)
-VALUES 
-    ('Limpeza Residencial', 'Serviço de limpeza residencial de alta qualidade', 'Limpeza Residencial Premium'),
+VALUES ('Limpeza Residencial', 'Serviço de limpeza residencial de alta qualidade', 'Limpeza Residencial Premium'),
     ('Treinamento em Liderança', 'Treinamento avançado em liderança para empresas', 'Treinamento Executivo em Liderança'),
     ('Consulta Clínico Geral', 'Consulta médica abrangente com diagnóstico completo', 'Consulta Médica Completa'),
     ('Desenvolvimento de App', 'Desenvolvimento personalizado de aplicativos móveis', 'Desenvolvimento de App Personalizado'),
@@ -196,8 +195,7 @@ VALUES
     
 -- RELACIONAMENTO PRESTADOR E SERVIÇO REALIZADO
 INSERT INTO prestadores_servicos (servico_id, prestador_id)
-VALUES
-    (4, 10),
+VALUES (4, 10),
     (2, 23),
     (1, 24),
     (4, 25),
@@ -257,7 +255,39 @@ VALUES
     (23, 23),
     (11, 25);
     
-    -- CONSULTAS
+INSERT INTO agendamentos (cliente_id, prestador_id, servico_id, status_agendamento, data, hora, data_hora_registro)
+VALUES (1, 10, 4, 'AGUARDANDO_CONFIRMACAO', '2023-09-05', '09:30:00', NOW()),
+    (2, 23, 2, 'AGUARDANDO_CONFIRMACAO', '2023-09-06', '14:00:00', NOW()),
+    (3, 24, 1, 'AGUARDANDO_CONFIRMACAO', '2023-09-07', '11:45:00', NOW()),
+    (4, 25, 4, 'AGUARDANDO_CONFIRMACAO', '2023-09-05', '15:15:00', NOW()),
+    (75, 26, 8, 'AGUARDANDO_CONFIRMACAO', '2023-09-06', '10:30:00', NOW()),
+    (6, 27, 6, 'AGUARDANDO_CONFIRMACAO', '2023-09-07', '09:00:00', NOW()),
+    (76, 28, 7, 'AGUARDANDO_CONFIRMACAO', '2023-09-08', '13:30:00', NOW()),
+    (77, 29, 5, 'AGUARDANDO_CONFIRMACAO', '2023-09-09', '12:15:00', NOW()),
+    (78, 30, 9, 'AGUARDANDO_CONFIRMACAO', '2023-09-08', '16:45:00', NOW()),
+    (79, 31, 10, 'AGUARDANDO_CONFIRMACAO', '2023-09-07', '11:00:00', NOW()),
+    (80, 32, 13, 'AGUARDANDO_CONFIRMACAO', '2023-09-10', '10:30:00', NOW()),
+    (81, 33, 12, 'AGUARDANDO_CONFIRMACAO', '2023-09-11', '14:15:00', NOW()),
+    (82, 34, 15, 'AGUARDANDO_CONFIRMACAO', '2023-09-12', '11:00:00', NOW()),
+    (83, 35, 14, 'AGUARDANDO_CONFIRMACAO', '2023-09-13', '16:45:00', NOW()),
+    (84, 36, 11, 'AGUARDANDO_CONFIRMACAO', '2023-09-14', '09:30:00', NOW()),
+    (85, 37, 16, 'AGUARDANDO_CONFIRMACAO', '2023-09-15', '13:00:00', NOW()),
+    (86, 38, 22, 'AGUARDANDO_CONFIRMACAO', '2023-09-16', '12:45:00', NOW()),
+    (87, 39, 18, 'AGUARDANDO_CONFIRMACAO', '2023-09-17', '15:30:00', NOW()),
+    (88, 40, 19, 'AGUARDANDO_CONFIRMACAO', '2023-09-18', '11:15:00', NOW()),
+    (89, 41, 20, 'AGUARDANDO_CONFIRMACAO', '2023-09-19', '14:00:00', NOW()),
+    (90, 42, 21, 'AGUARDANDO_CONFIRMACAO', '2023-09-20', '10:00:00', NOW()),
+    (91, 43, 17, 'AGUARDANDO_CONFIRMACAO', '2023-09-21', '14:30:00', NOW()),
+    (92, 44, 23, 'AGUARDANDO_CONFIRMACAO', '2023-09-22', '11:15:00', NOW()),
+    (93, 45, 24, 'AGUARDANDO_CONFIRMACAO', '2023-09-23', '16:00:00', NOW()),
+    (94, 46, 25, 'AGUARDANDO_CONFIRMACAO', '2023-09-24', '09:45:00', NOW()),
+    (80, 47, 26, 'AGUARDANDO_CONFIRMACAO', '2023-09-25', '13:30:00', NOW()),
+    (81, 48, 27, 'AGUARDANDO_CONFIRMACAO', '2023-09-26', '12:00:00', NOW()),
+    (82, 49, 28, 'AGUARDANDO_CONFIRMACAO', '2023-09-27', '15:45:00', NOW()),
+    (83, 50, 29, 'AGUARDANDO_CONFIRMACAO', '2023-09-28', '11:30:00', NOW()),
+    (80, 51, 30, 'AGUARDANDO_CONFIRMACAO', '2023-09-29', '14:15:00', NOW());
+    
+-- CONSULTAS
 SELECT * FROM usuarios;
 SELECT * FROM servicos;
 SELECT * FROM prestadores_servicos;

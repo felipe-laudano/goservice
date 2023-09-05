@@ -30,11 +30,17 @@ public class AdministradorController {
     private UsuarioLogService usuarioLogService;
 
     @GetMapping(value = "/servicos")
-    public ModelAndView servicos() {
+    public ModelAndView servicos(@RequestParam(required = false) String servicoFiltro) {
         ModelAndView mv = new ModelAndView("servicosAdmin");
         try {
-            List<Servico> servicos = servicoService.findAll();
-            mv.addObject("servicos", servicos);
+            if (servicoFiltro == null){
+                List<Servico> servicos = servicoService.findAll();
+                mv.addObject("servicos", servicos);
+            }
+            else {
+                List<Servico> servicosPorNome = servicoService.findServicoByName(servicoFiltro);
+                mv.addObject("servicos", servicosPorNome);
+            }
         } catch (Exception ex) {
             mv.addObject("errorMessage", "Erro ao buscar dados de serviços.");
         }
@@ -91,11 +97,19 @@ public class AdministradorController {
     }
 
     @GetMapping(value = "/usuarios")
-    public ModelAndView usuarios() {
+    public ModelAndView usuarios(@RequestParam(required = false) String nomeFiltro) {
         ModelAndView mv = new ModelAndView("usuariosAdmin");
         try {
-            List<Usuario> usuarios = usuarioService.findAll();
-            mv.addObject("usuarios", usuarios);
+
+            if (nomeFiltro == null){
+                List<Usuario> usuarios = usuarioService.findAll();
+                mv.addObject("usuarios", usuarios);
+            }
+            else {
+                List<Usuario> usuariosPorNome = usuarioService.findByUserName(nomeFiltro);
+                mv.addObject("usuarios", usuariosPorNome);
+            }
+
         } catch (Exception ex) {
             mv.addObject("errorMessage", "Erro ao buscar dados de usuários.");
         }

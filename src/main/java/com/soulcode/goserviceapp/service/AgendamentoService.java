@@ -10,9 +10,11 @@ import com.soulcode.goserviceapp.service.exceptions.AgendamentoNaoEncontradoExce
 import com.soulcode.goserviceapp.service.exceptions.StatusAgendamentoImutavelException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.Cacheable;
+import org.springframework.cglib.core.Local;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Service;
 
+import javax.swing.event.ListDataEvent;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.List;
@@ -38,6 +40,15 @@ public class AgendamentoService {
             return agendamento.get();
         }
         throw new AgendamentoNaoEncontradoException();
+    }
+
+    public List<Agendamento> findByAgendamentoData(LocalDate agendamentoDataInicial, LocalDate agendamentoDataFinal, Authentication authentication){
+        Prestador prestador = prestadorService.findAuthenticated(authentication);
+        if (agendamentoDataInicial == null || agendamentoDataFinal == null){
+            throw new RuntimeException();
+        }
+        return agendamentoRepository.findByAgendamentoData(agendamentoDataInicial, agendamentoDataFinal, prestador.getId());
+
     }
 
     public Agendamento create(Authentication authentication, Long servicoId, Long prestadorId, LocalDate data, LocalTime hora){

@@ -38,6 +38,9 @@ public class Usuario implements UserDetails {
     @Column
     private String urlFoto;
 
+    @OneToMany(mappedBy = "usuario")
+    private List<Endereco> enderecos;
+
     public Usuario(){
         this.habilitado =true;
     }
