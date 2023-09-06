@@ -44,6 +44,13 @@
                 </div>
             </ul>
 
+            <div class="b-switch">
+                <label class="switch-wrapper" for=button-theme>
+                    <input type="checkbox" id="button-theme">
+                    <div class="switch"></div>
+                </label>
+            </div>
+
             <div class="text-end" th:if="${not #authorization.expression('isAuthenticated()')}">
                 <a href="/auth/login" type="button" class="btn btn-outline-primary me-3">Login</a>
                 <a href="/auth/cadastro" type="button" class="btn btn-primary">Cadastre-se</a>
