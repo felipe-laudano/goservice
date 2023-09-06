@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<head lang="pt-BR">
+    <meta charset="UTF-8">
+    <title>Página de Error</title>
+    <h1 class="erro" style=" color: #F05A39; font-size: 18px; font-weight: bold; text-align: center; font-family: 'Comic Sans MS';">
+
+        <span th:text="${errorCode}"> </span><span th:text="${errorMsg}"></span>.ERROR<br>Você está procurando um conteúdo que não existe.
+        <br>Ou talvez ele exista, mas não está disponível no momento.
+        <br>Enquanto isso, você pode aproveitar para:
+        <br>Olhar para o céu e imaginar o que o futuro nos reserva.</h1>
+    <div>
+        <a href="/" th:href="@{/home}">
+            <img id="imagem-error" style="width: 100%; margin-top: 30px" th:src="@{/assets/img/error.jpg}">
+        </a>
+
+    </div>
+
+</head>
+
+
+
