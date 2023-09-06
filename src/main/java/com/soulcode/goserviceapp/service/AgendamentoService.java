@@ -121,4 +121,14 @@ public class AgendamentoService {
         }
         throw new StatusAgendamentoImutavelException();
     }
+
+    public List<Agendamento> findByHistoricoAgendamentoData(LocalDate agendamentoDataInicial, LocalDate agendamentoDataFinal, Authentication authentication){
+        Cliente cliente = clienteService.findAuthenticated(authentication);
+        if (agendamentoDataInicial == null || agendamentoDataFinal == null){
+            throw new RuntimeException();
+        }
+        return agendamentoRepository.findByHistoricoAgendamentoData(agendamentoDataInicial, agendamentoDataFinal, cliente.getId());
+
+    }
+
 }

@@ -149,4 +149,29 @@ public class ClienteController {
         }
         return "redirect:/cliente/historico";
     }
+
+    @PostMapping(value = "/historico/busca")
+    public String findByHistoricoAgendamentoData(
+            @RequestParam (required = false) LocalDate dataInicial,
+            @RequestParam (required = false) LocalDate dataFinal,
+            Authentication authentication,
+            RedirectAttributes attributes){
+        try {
+            List<Agendamento> agendamentos = agendamentoService.findByHistoricoAgendamentoData(dataInicial, dataFinal, authentication);
+            System.out.println(dataInicial);
+            System.out.println(dataFinal);
+            attributes.addFlashAttribute("agendamentosData", agendamentos);
+        }
+        catch (UsuarioNaoAutenticadoException | UsuarioNaoEncontradoException e) {
+            attributes.addFlashAttribute("errorMessage", e.getMessage());
+        }
+        catch (RuntimeException e) {
+            attributes.addFlashAttribute("errorMessage", "Insira uma data válida");
+        }
+        catch (Exception e) {
+            attributes.addFlashAttribute("errorMessage", "Erro ao exibir dados");
+        }
+        return "redirect:/cliente/historico";
+    }
 }
+
