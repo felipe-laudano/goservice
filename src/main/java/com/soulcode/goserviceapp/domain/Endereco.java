@@ -1,9 +1,10 @@
 package com.soulcode.goserviceapp.domain;
 
 import jakarta.persistence.*;
+import java.io.Serializable;
 
 @Entity
-public class Endereco {
+public class Endereco implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
