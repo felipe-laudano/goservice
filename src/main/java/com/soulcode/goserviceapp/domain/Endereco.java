@@ -3,6 +3,8 @@ package com.soulcode.goserviceapp.domain;
 import jakarta.persistence.*;
 import java.io.Serializable;
 
+import java.io.Serializable;
+
 @Entity
 public class Endereco implements Serializable {
 
