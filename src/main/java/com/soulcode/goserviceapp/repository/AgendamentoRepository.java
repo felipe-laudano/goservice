@@ -23,4 +23,7 @@ public interface AgendamentoRepository extends JpaRepository<Agendamento, Long> 
 
     @Query(value = "SELECT status_agendamento, COUNT(status_agendamento) FROM agendamentos GROUP BY status_agendamento;", nativeQuery = true)
     List<Agendamento> agendamentoByStatus (StatusAgendamento statusAgendamento);
+
+    @Query(value = "SELECT * FROM agendamentos WHERE data BETWEEN ? AND ? AND cliente_id = ? ORDER BY data", nativeQuery = true)
+    List<Agendamento> findByHistoricoAgendamentoData(LocalDate agendamentoDataInicial, LocalDate agendamentoDataFinal, Long clienteid);
 }
